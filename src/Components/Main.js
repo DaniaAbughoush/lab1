@@ -1,22 +1,30 @@
 import React from 'react';
 import HornedBeasts from './HornedBeasts'
+import data from './data.json'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card';
+import CardColumns from 'react-bootstrap/CardColumns';
+
 
 
 class Main extends React.Component{
     render(){
-        return(
-           <div>
-             
-          
-             <HornedBeasts subject={'Rhino Family'} description={'Mother (or father) rhino with two babie'} img_url={'https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80'} title={'Rhino Family'} alt={'rhino'}/>
+      let hornedBeast=data.map(animal=>{
+        return <HornedBeasts title={animal.title} description={animal.description}  image_url = {animal.image_url} alt={animal.keyword}/>
+      });
+      
+       
 
 
-             <HornedBeasts subject={'UniWhal'} description={'A unicorn and a narwhal nuzzling their horn'} img_url={'http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg'} title={'UniWhal'} alt={'narwha'}/>
+            
+return(
+  <div>
+     <CardColumns>
 
-           
-           </div>
-         
-        );
+    {hornedBeast}
+     </CardColumns>
+  </div>
+)
     }
 }
 export default Main;
