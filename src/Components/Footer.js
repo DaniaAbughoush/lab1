@@ -3,7 +3,10 @@ import React from 'react';
      render(){
          return(
              <div>
+                 <footer>
+
                  <p>Dania Abughoush</p>
+                 </footer>
              </div>
          );
      }
