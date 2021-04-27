@@ -77,4 +77,4 @@ Start time: 2:00pm_____
 
 Finish time: ___8:30__
 
-Actual time needed to complete: __5h___
+Actual time needed to complete: __5hours___
