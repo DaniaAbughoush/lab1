@@ -3,7 +3,7 @@
       "Mustache": true,
       "$": true
     },
-    "extends": "eslint:recommended",
+    "extends": "react-app",
     "parserOptions": {
       "ecmaVersion": 6
     },
@@ -15,8 +15,9 @@
       "node": true
     },
     "rules": {
-      "eol-last": "error",
-      "eqeqeq": [
+      "eol-last": 0,
+      "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+            "eqeqeq": [
         "error",
         "always"
       ],

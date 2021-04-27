@@ -1,0 +1,3 @@
+.modal-body img {
+    max-width: 100%; /* percents in CSS are based on the parent */
+  }
