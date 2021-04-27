@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Number and name of feature: ____modal _and pass function___________________________
+
+Estimate of time needed to complete: ___6h__
+
+Start time: 2:00pm_____
+
+Finish time: ___8:30__
+
+Actual time needed to complete: __5h___
