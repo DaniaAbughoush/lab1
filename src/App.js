@@ -3,48 +3,44 @@ import Header from './Components/header';
 import Footer from './Components/Footer';
 import Main from './Components/Main';
 import data from './Components/data.json';
-import SelectedBeast from './Components/SelectedBeast ';
 
-
+import SelectedBeast from './Components/selectbeast';
+// import { Container } from 'react-bootstrap';
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      SelectedBeast:{},
+      selectedBeast:{},
       display:false,
-      data:data,
-
     };
   }
 
-  showModal = (selectedBeast) => {
-    // this.setState({ display: !this.state.display });
-    this.setState({ display: true, selectedBeast: selectedBeast });
-  }
-  
-  hideModal = () => {
-    this.setState({ display: false, selectedBeast: {} });
+  handleSelectChange = (title) => {
+    let beast = data.find(item => item.title === title);
+    this.setState({
+      selectedBeast: beast,
+      display: !this.state.display,
+    });
+  };
+
+  handleClose = () => {
+    this.setState({display: !this.state.display});
   }
 
   render(){
+
     return(
       <div>
         <Header/>
-        <Main
-          data={this.state.data}
-          // showModal={this.showModal}
-          // updateBeast={this.updateBeast}
-          handleClick={this.showModal}
-        />  
+        < Main handleSelectChange={this.handleSelectChange} data={data} />
         <SelectedBeast
+          beast={this.state.selectedBeast}
           display={this.state.display}
-          hideBeast={this.hideModal}
-          selectedBeast={this.state.selectedBeast}
+          handleClose={this.handleClose}
         />
         <Footer/>
       </div>
     );
   }
 }
-
 export default App;

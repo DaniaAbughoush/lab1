@@ -1,52 +1,39 @@
-
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
-// import { CardImg } from 'react-bootstrap';
 
-class HornedBeasts extends React.Component{
-  constructor(props){
+class HornedBeasts extends React.Component {
+  constructor(props) {
     super(props);
 
-    this.state={
-      numbberOfFav:0
+    this.state = {
+      numberOfClicks: 0,
+      numberOfStars: '💟',
     };
+  };
+
+  handleClick = () => {
+    this.props.handleSelectChange(this.props.title);
+    this.setState({ numberOfClicks: this.state.numberOfClicks + 1 });
   }
-    countFavor=()=>{
-      this.setState(
-        {
 
-          numbberOfFav:this.state.numbberOfFav+1
-        }
-      );
-    }
-    render(){
-      return(
+  render() {
+    return (
 
-        <div >
+      <Card>
+        <Card.Img onClick={this.handleClick} variant="top" src={this.props.image_url} />
+        <Card.Body>
+          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Text>
+            {this.props.description}
+            <p>
+              {this.state.numberOfClicks}
+              {this.state.numberOfStars}
+            </p>
 
-          <Card style={{ width: '18rem' }}>
-            <Card.Img onClick={this.countFavor} variant="top" src={this.props.image_url} style={{ width: '100%' }}/>
-            <Card.Body>
-              <Card.Title>
-                {this.props.title}
-              </Card.Title>
-              <Card.Text>
-                {this.props.description}
-              </Card.Text>
-              <Card.Text >
-                {this.props.keyword}
-              </Card.Text>
-              <Card.Text>
-                        💟 {this.state.numbberOfFav} click on hornBeast!
-              </Card.Text>
-            </Card.Body>
-
-          </Card>
-
-        </div>
-      );
-    }
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    );
+  };
 }
 export default HornedBeasts;

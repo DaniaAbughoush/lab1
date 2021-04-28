@@ -7,8 +7,15 @@ import CardColumns from 'react-bootstrap/CardColumns';
 
 class Main extends React.Component{
   render(){
-    let hornedBeast=data.map(animal=>{
-      return <HornedBeasts title={animal.title} description={animal.description} image_url = {animal.image_url} alt={animal.keyword}/>;
+    let hornedBeast = this.props.data.map((beast, index) => {
+      return <HornedBeasts
+        key={index}
+        image_url={beast.image_url}
+        description={beast.description}
+        title={beast.title}
+        handleSelectChange={this.props.handleSelectChange}
+      />;
+
     });
 
     return(
