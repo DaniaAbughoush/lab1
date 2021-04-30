@@ -1,31 +1,38 @@
 import React from 'react';
-import HornedBeasts from './HornedBeasts';
-import data from './data.json';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import Card from 'react-bootstrap/Card';
+import FormComponent from './Form';
 import CardColumns from 'react-bootstrap/CardColumns';
+import HornedBeasts from './HornedBeasts';
 
-class Main extends React.Component{
-  render(){
-    let hornedBeast = this.props.data.map((beast, index) => {
+class Main extends React.Component {
+  render() {
+    console.log('main', this.props);
+
+    let beastArray = this.props.allBeast.map((beast, index) => {
       return <HornedBeasts
         key={index}
         image_url={beast.image_url}
-        description={beast.description}
+        description={beast.descriptions}
         title={beast.title}
         handleSelectChange={this.props.handleSelectChange}
       />;
 
     });
 
-    return(
-      <div>
-        <CardColumns>
-
-          {hornedBeast}
-        </CardColumns>
-      </div>
+    return (
+      <>
+        <FormComponent
+          filterBeast={this.props.filterBeast}
+          allBeast={this.props.allBeast}
+          originalData={this.props.originalData}
+        />
+        <main>
+          <CardColumns>
+            {beastArray}
+          </CardColumns>
+        </main>
+      </>
     );
   }
 }
+
 export default Main;
